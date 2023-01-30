@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_start_app/screen/home_screen.dart';
 import 'package:flutter_start_app/widget/BottomBar.dart';
 
 void main() => runApp(MyApp());
@@ -8,7 +9,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,11 +25,7 @@ class _MyAppState extends State<MyApp> {
             // NeverScrollableScrollPhysics : 좌우로 스크롤 했을때 움직이지 않게 fixed 설정
             physics: const NeverScrollableScrollPhysics(),
             children: <Widget>[
-               Container(
-                child: const Center(
-                  child: Text('home'),
-                ),
-              ),
+              HomeScreen(),
               Container(
                 child: const Center(
                   child: Text('seach'),
