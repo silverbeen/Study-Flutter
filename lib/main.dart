@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
               HomeScreen(),
               Container(
                 child: const Center(
-                  child: Text('seach'),
+                  child: Text('searchs'),
                 ),
               ),
               Container(

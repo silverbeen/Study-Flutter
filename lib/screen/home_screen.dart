@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start_app/modal/modal_movie.dart';
+import 'package:flutter_start_app/widget/carousel_slider.dart';
 
 // 홈 화면은 백엔드로부터 데이터를 받아와 뷰를 보여주기 때문에
 // StatefulWidget을 사용하고 상태관리 코드를 작성해준다.
@@ -25,7 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[CarouselImage(movies: movies), TopBar()],
+        )
+      ],
+    );
   }
 }
 

@@ -11,7 +11,7 @@ class Movie {
       : title = map['title'],
         keyword = map['keyword'],
         poster = map['poster'],
-        like = map['link'];
+        like = map['like'];
 
   @override
   String toString() => 'Movie<$title:$keyword>';
