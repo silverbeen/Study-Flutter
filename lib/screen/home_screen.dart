@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start_app/modal/modal_movie.dart';
 import 'package:flutter_start_app/widget/carousel_slider.dart';
+import 'package:flutter_start_app/widget/circle_slider.dart';
+import 'package:flutter_start_app/widget/box_slider.dart';
 
 // 홈 화면은 백엔드로부터 데이터를 받아와 뷰를 보여주기 때문에
 // StatefulWidget을 사용하고 상태관리 코드를 작성해준다.
@@ -16,7 +18,25 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyword': '사랑/로맨스/판타지',
       'poster': 'test_movie_1.png',
       'like': false
-    })
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    }),
   ];
 
   @override
@@ -30,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
       children: <Widget>[
         Stack(
           children: <Widget>[CarouselImage(movies: movies), TopBar()],
-        )
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies),
       ],
     );
   }

@@ -24,7 +24,7 @@ class _CarouselImageState extends State<CarouselImage> {
   void initState() {
     super.initState();
     movies = widget.movies;
-    images = movies.map((m) => Image.asset('../images/' + m.poster)).toList();
+    images = movies.map((m) => Image.asset('images/' + m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
     _currentKeyword = keywords[0];
@@ -57,7 +57,9 @@ class _CarouselImageState extends State<CarouselImage> {
             ),
           ),
           Container(
+            margin: const EdgeInsets.only(top: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Container(
                   child: Column(
@@ -76,9 +78,11 @@ class _CarouselImageState extends State<CarouselImage> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 15),
                   child: TextButton(
-                    style: TextButton.styleFrom(primary: Colors.white),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.white)),
                     onPressed: () {},
                     child: Row(
                       children: const <Widget>[
@@ -114,9 +118,32 @@ class _CarouselImageState extends State<CarouselImage> {
                 )
               ],
             ),
-          )
+          ),
+          Container(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: makeIndicator(likes, _currentPage),
+          )),
         ],
       ),
     );
   }
+}
+
+List<Widget> makeIndicator(List list, int _currentPage) {
+  List<Widget> result = [];
+  for (var i = 0; i < list.length; i++) {
+    result.add(Container(
+      width: 8,
+      height: 8,
+      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+      decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _currentPage == i
+              ? const Color.fromRGBO(255, 255, 255, 0.9)
+              : const Color.fromRGBO(255, 255, 255, 0.4)),
+    ));
+  }
+
+  return result;
 }
