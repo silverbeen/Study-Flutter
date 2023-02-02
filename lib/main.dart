@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         length: 4,
         child: Scaffold(
           body: TabBarView(
-            // NeverScrollableScrollPhysics : 좌우로 스크롤 했을때 움직이지 않게 fixed 설정
+            /// NeverScrollableScrollPhysics : 좌우로 스크롤 했을때 움직이지 않게 fixed 설정
             physics: const NeverScrollableScrollPhysics(),
             children: <Widget>[
               HomeScreen(),

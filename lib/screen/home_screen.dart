@@ -4,14 +4,14 @@ import 'package:flutter_start_app/widget/carousel_slider.dart';
 import 'package:flutter_start_app/widget/circle_slider.dart';
 import 'package:flutter_start_app/widget/box_slider.dart';
 
-// 홈 화면은 백엔드로부터 데이터를 받아와 뷰를 보여주기 때문에
-// StatefulWidget을 사용하고 상태관리 코드를 작성해준다.
+/// 홈 화면은 백엔드로부터 데이터를 받아와 뷰를 보여주기 때문에
+/// StatefulWidget을 사용하고 상태관리 코드를 작성해준다.
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // 더미데이터 추후 파이어베이스 연동
+  /// 더미데이터 추후 파이어베이스 연동
   List<Movie> movies = [
     Movie.fromMap({
       'title': '사랑의 불시착',

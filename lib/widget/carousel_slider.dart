@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_start_app/modal/modal_movie.dart';
+import 'package:flutter_start_app/screen/detail_screen.dart';
 
 // flutter가 nullable 정책을 바꿔서 일어난 에러로
 // ? or late 를 붙여주어 nullable 에러를 수정한다.
@@ -24,7 +25,7 @@ class _CarouselImageState extends State<CarouselImage> {
   void initState() {
     super.initState();
     movies = widget.movies;
-    images = movies.map((m) => Image.asset('images/' + m.poster)).toList();
+    images = movies.map((m) => Image.asset('images/${m.poster}')).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
     _currentKeyword = keywords[0];
@@ -107,7 +108,17 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: <Widget>[
                       IconButton(
                         icon: const Icon(Icons.info),
-                        onPressed: () {},
+                        /// 정보 버튼을 누르면 Detail_screen으로 이동
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              fullscreenDialog: true,
+                              builder: (BuildContext context) {
+                                return DetailScreen(
+                                  /// 현재 페이지에 해당하는 movie의 상태를 파라미터로 넘겨준다. (Props 같은 의미)
+                                  movie: movies[_currentPage],
+                                );
+                              }));
+                        },
                       ),
                       const Text(
                         '정보',
